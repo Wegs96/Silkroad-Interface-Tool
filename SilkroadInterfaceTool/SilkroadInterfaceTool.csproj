@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="BindableVars\BindingRect.cs" />
+      <Compile Remove="BindableVars\BindingPoint.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="BindableVars\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Textures\sys_button.png" />
+      <Resource Include="Textures\sys_button.png" />
+    </ItemGroup>
+
+</Project>

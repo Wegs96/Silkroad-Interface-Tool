@@ -1,0 +1,41 @@
+﻿<Window x:Class="SilkroadInterfaceTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SilkroadInterfaceTool"
+        xmlns:cIF="clr-namespace:SilkroadInterfaceTool.SROControls"
+        mc:Ignorable="d"
+        Background="White"
+        Title="Silkroad Interface Tool | Alpha" Height="720" Width="1280">
+    <!-- <Grid> -->
+    <!-- <Grid.ColumnDefinitions> -->
+    <!--     <ColumnDefinition Width="250"></ColumnDefinition> -->
+    <!--     <ColumnDefinition Width="Auto"></ColumnDefinition> -->
+    <!--     <ColumnDefinition Width="250"></ColumnDefinition> -->
+    <!-- </Grid.ColumnDefinitions> -->
+    <!--      -->
+    <!-- </Grid> -->
+    <Grid>
+    <DockPanel>
+        <!-- Left Side Panel -->
+
+       
+        <Button Name="TopRect" DockPanel.Dock="Top" Background="LightGreen" Height="50" Content="Top" />  
+        <Line/>
+        <local:LeftSidePanel x:Name="LeftSide" DockPanel.Dock="Left" Margin="0,10,0,0"/>
+
+        <Button Name="RightRect" DockPanel.Dock="Right" Background="LightSalmon" Width="50" Content="Right" />  
+
+        <local:DesignArea x:Name="designArea" AllowDrop="True" Drop="DesignArea_OnDrop">
+            <!-- <ContextMenu StaysOpen="true"> -->
+            <!--     <MenuItem Header="CIFMainFrame" /> -->
+            <!-- </ContextMenu> -->
+        </local:DesignArea>
+        <!-- Designer Are -->
+        
+        <!-- Right Side Panel -->
+    </DockPanel>
+        </Grid>
+   
+</Window>
