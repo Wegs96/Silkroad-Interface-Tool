@@ -11,15 +11,21 @@
     <ItemGroup>
       <Compile Remove="BindableVars\BindingRect.cs" />
       <Compile Remove="BindableVars\BindingPoint.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="BindableVars\" />
+      <Compile Remove="BindableVars\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Textures\sys_button.png" />
       <Resource Include="Textures\sys_button.png" />
+      <None Remove="BindableVars\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="BindableVars\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Remove="BindableVars\**" />
     </ItemGroup>
 
 </Project>
