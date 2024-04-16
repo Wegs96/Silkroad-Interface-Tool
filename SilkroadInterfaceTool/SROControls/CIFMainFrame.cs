@@ -5,6 +5,9 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
+/// <summary>
+/// CIFMainFrame aka window
+/// </summary>
 public class CIFMainFrame : CIFControlBase
 {
     private readonly Canvas _canvas;
@@ -43,6 +46,7 @@ public class CIFMainFrame : CIFControlBase
     public void AddControl(CIFControlBase control)
     {
         _canvas.Children.Add(control);
+        //maybe we need to change Canvas Set top and left to Render RenderTransform
         Canvas.SetLeft(control, control.CIFRect.X);
         Canvas.SetTop(control, control.CIFRect.Y);
     }

@@ -29,24 +29,32 @@ public partial class MainWindow : Window
         DefaultStyleKeyProperty.OverrideMetadata(typeof(CIFStatic), new FrameworkPropertyMetadata(typeof(CIFStatic)));
     }
 
+    /// <summary>
+    /// On Control Drop Event Handler
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     private void DesignArea_OnDrop(object sender, DragEventArgs e)
     {
         if (e.Data.GetData(DataFormats.Serializable) is Border s)
         {
-
+            //Check if Control is CIFMainFrame If Exists just return to avoid multiple CIFMainFrames 
             if (s?.Tag.ToString() == "CIFMainFrame" &&
                 Globals.CIFControlList.Any(p => p.CIFType == CIFType.CIFMainFrame))
             {
                 MessageBox.Show("Adding multiple CIFMainFrame is not supported !", "Error");
                 return;
             }
-
+            //Check if CIFMainFrame Exists before adding other controls
+            
             if (s?.Tag.ToString() != "CIFMainFrame" && Globals.CIFControlList.Count <= 0)
             {
                 MessageBox.Show("You must add CIFMainFrame first !", "Error");
                 return;
             }
 
+            //Initializing a new control depends on Added control's type
             CIFControlBase sroControl = s?.Tag.ToString() switch
             {
                 "CIFMainFrame" => new CIFMainFrame(designArea),
@@ -58,19 +66,18 @@ public partial class MainWindow : Window
                 _ => throw new ArgumentOutOfRangeException()
             };
 
+            //Setting up the default setup for Control
             sroControl.DefaultSetup();
             Globals.CIFControlList.Add(sroControl);
 
+            //Getting the control's drop position relative to design area
             var dropPos = e.GetPosition(designArea.designCanvas);
-           var ss = designArea.designCanvas.Children.Add(sroControl);
-            
-           sroControl.RenderTransform = new TranslateTransform(dropPos.X, dropPos.Y);
+            //Adding the dropped control into design area canvas as child element
+            designArea.designCanvas.Children.Add(sroControl);
 
-           // Canvas.SetLeft(designArea.designCanvas.Children[ss], dropPos.X);
-         //   Canvas.SetTop(designArea.designCanvas.Children[ss], dropPos.Y);
+            //Setting up the control's position to Drop Position
+            sroControl.RenderTransform = new TranslateTransform(dropPos.X, dropPos.Y);
+
         }
-
-        
     }
-
 }

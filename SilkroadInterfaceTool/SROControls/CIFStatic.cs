@@ -4,6 +4,9 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
+/// <summary>
+/// CIFStatic which can be a Label or a Static image if ddj is set
+/// </summary>
 public class CIFStatic : CIFControlBase
 {
     public CIFStatic(UIElement parent) : base(parent)
@@ -17,7 +20,7 @@ public class CIFStatic : CIFControlBase
         
         CIFClientRect = new Rect(0, 0, 0, 0);
         CIFColor = Color.FromArgb(255,214,171,46);
-        CIFDDJ = "interface\\\\ifcommon\\\\bg_tile\\\\com_bg_tile_b.ddj";
+        CIFDDJ = string.Empty;
         CIFFontColor = Color.FromArgb(255,254,251,216);
         CIFFontIndex = 1;
         CIFHAlign = 1;

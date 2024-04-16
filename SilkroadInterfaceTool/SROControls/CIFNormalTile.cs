@@ -4,6 +4,9 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
+/// <summary>
+/// CIFNormalTile , it is a repeated background tile
+/// </summary>
 public class CIFNormalTile : CIFControlBase
 {
     public CIFNormalTile(UIElement parent) : base(parent)

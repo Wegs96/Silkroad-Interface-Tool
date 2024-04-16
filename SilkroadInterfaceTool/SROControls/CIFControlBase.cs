@@ -15,6 +15,9 @@ namespace SilkroadInterfaceTool.SROControls;
 public class CIFControlBase : Control, INotifyPropertyChanged
 {
 
+    /// <summary>
+    /// Default Setup , to be overridden from controls
+    /// </summary>
     public virtual void DefaultSetup()
     {
         this.ContextMenu = new ContextMenu();
@@ -276,10 +279,11 @@ public class CIFControlBase : Control, INotifyPropertyChanged
 
     #endregion
 
-    #region Constructors
+    #region Constructor
 
     protected CIFControlBase(UIElement parent)
     {
+        //maybe it isn't necessary !? 
         this._parent = parent;
     }
 
@@ -303,7 +307,9 @@ public class CIFControlBase : Control, INotifyPropertyChanged
     }
 
     #endregion
-    
+
+    #region Dragable control
+
     private Point _positionInBlock;
     protected override void OnMouseDown(MouseButtonEventArgs e)
     {
@@ -340,4 +346,7 @@ public class CIFControlBase : Control, INotifyPropertyChanged
         
         this.ReleaseMouseCapture();
     }
+
+    #endregion
+   
 }
