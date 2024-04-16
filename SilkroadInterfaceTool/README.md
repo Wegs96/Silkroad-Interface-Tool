@@ -6,7 +6,7 @@
 it also meant to convert Resinfo aka interface files back into design mode.
 
 # Current Stage
-he project is far from begin useable at the current stage still requires some cleanup and might have a lot of breaking changes , yet it is not functional atm
+>This project is far from begin useable at the current stage still requires some cleanup and might have a lot of breaking changes , yet it is not functional atm
 
 # License
 This code has been licensed under the DON'T BE A DICK PUBLIC LICENSE.
