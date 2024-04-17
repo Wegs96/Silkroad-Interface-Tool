@@ -34,6 +34,22 @@
       <Resource Include="Textures\MainFrame\mframe_wnd_right_side.png" />
       <None Remove="Textures\MainFrame\mframe_wnd_right_up.png" />
       <Resource Include="Textures\MainFrame\mframe_wnd_right_up.png" />
+      <None Remove="Textures\Frame\frame_left_down.png" />
+      <Resource Include="Textures\Frame\frame_left_down.png" />
+      <None Remove="Textures\Frame\frame_left_side.png" />
+      <Resource Include="Textures\Frame\frame_left_side.png" />
+      <None Remove="Textures\Frame\frame_left_up.png" />
+      <Resource Include="Textures\Frame\frame_left_up.png" />
+      <None Remove="Textures\Frame\frame_mid_down.png" />
+      <Resource Include="Textures\Frame\frame_mid_down.png" />
+      <None Remove="Textures\Frame\frame_mid_up.png" />
+      <Resource Include="Textures\Frame\frame_mid_up.png" />
+      <None Remove="Textures\Frame\frame_right_down.png" />
+      <Resource Include="Textures\Frame\frame_right_down.png" />
+      <None Remove="Textures\Frame\frame_right_side.png" />
+      <Resource Include="Textures\Frame\frame_right_side.png" />
+      <None Remove="Textures\Frame\frame_right_up.png" />
+      <Resource Include="Textures\Frame\frame_right_up.png" />
     </ItemGroup>
 
     <ItemGroup>

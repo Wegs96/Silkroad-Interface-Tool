@@ -4,5 +4,6 @@
         <ResourceDictionary Source="/SROControls/CIFButtonStyle.xaml"></ResourceDictionary>
         <ResourceDictionary Source="/SROControls/CIFStaticStyle.xaml"></ResourceDictionary>
         <ResourceDictionary Source="/SROControls/CIFMainFrameStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/SROControls/CIFFrameStyle.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
