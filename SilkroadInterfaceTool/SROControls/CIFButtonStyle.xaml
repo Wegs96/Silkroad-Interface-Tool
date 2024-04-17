@@ -6,7 +6,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="sroControls:CIFButton">
-                    <Rectangle Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
+                    <Rectangle Width="{Binding CIFRect.Width , RelativeSource={RelativeSource  FindAncestor,AncestorType= sroControls:CIFButton }}"
+                               Height="{Binding CIFRect.Height , RelativeSource={RelativeSource  FindAncestor,AncestorType= sroControls:CIFButton }}">
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="/Textures/sys_button.png" />
                             </Rectangle.Fill>

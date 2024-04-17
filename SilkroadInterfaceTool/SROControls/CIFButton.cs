@@ -35,31 +35,7 @@ public class CIFButton : CIFControlBase
         CIFVAlign = 0;
         
         //-------\\
-        Width = CIFRect.Width;
-        Height = CIFRect.Height;
         Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
-    
-    /// <summary>
-    /// Initializing a new CIFButton Control
-    /// </summary>
-    /// <param name="bName">base name aka classname</param>
-    /// <param name="cName">Control Name</param>
-    /// <param name="id"></param>
-    // public CIFButton(int id ,string bName ,string cName) :this()
-    // {
-    //     CIFID = id;
-    //     Name = $"GDR_{bName}_{cName}{id}";
-    // }
-
-    /// <summary>
-    /// Initializing a new CIFButton Control with given rect (X,Y,Width,Height)
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="bName"></param>
-    /// <param name="cName"></param>
-    /// <param name="rect"></param>
-    // public CIFButton(int id, string bName, string cName, Rect rect) : this(id, bName, cName)
-    //     => CIFRect = rect;
-
+   
 }
