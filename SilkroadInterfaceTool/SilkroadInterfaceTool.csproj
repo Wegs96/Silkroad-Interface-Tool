@@ -18,6 +18,22 @@
       <None Remove="Textures\sys_button.png" />
       <Resource Include="Textures\sys_button.png" />
       <None Remove="BindableVars\**" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_side.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_side.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_up.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_mid_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_mid_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_mid_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_mid_up.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_side.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_side.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_up.png" />
     </ItemGroup>
 
     <ItemGroup>
