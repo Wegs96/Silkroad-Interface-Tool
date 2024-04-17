@@ -4,11 +4,10 @@
     <Style TargetType="sroControls:CIFNormalTile">
         <Setter Property="Template">
             <Setter.Value>
-                <!-- TODO: Silkroad does repeat the Tile texture if Control > Tile size , the current method stretches it !-->
                 <ControlTemplate TargetType="sroControls:CIFNormalTile">
                     <Rectangle Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
                         <Rectangle.Fill>
-                            <ImageBrush ImageSource="/Textures/Tiles/com_bg_tile_b.png" />
+                            <ImageBrush TileMode="Tile" Viewport="0,0,128,128" ViewportUnits="Absolute"  Stretch="None" ImageSource="/Textures/Tiles/com_bg_tile_b.png" />
                         </Rectangle.Fill>
                     </Rectangle>
                 </ControlTemplate>
