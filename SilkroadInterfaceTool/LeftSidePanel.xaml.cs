@@ -6,7 +6,7 @@ using SilkroadInterfaceTool.SROControls;
 using Rectangle = System.Windows.Shapes.Rectangle;
 
 namespace SilkroadInterfaceTool;
-
+// TODO: To be removed and replaced with Right Click Context menu
 public partial class LeftSidePanel : UserControl
 {
     public LeftSidePanel()

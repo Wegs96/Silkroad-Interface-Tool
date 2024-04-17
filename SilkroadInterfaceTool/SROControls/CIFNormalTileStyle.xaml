@@ -4,6 +4,7 @@
     <Style TargetType="sroControls:CIFNormalTile">
         <Setter Property="Template">
             <Setter.Value>
+                <!-- TODO: Silkroad does repeat the Tile texture if Control > Tile size , the current method stretches it !-->
                 <ControlTemplate TargetType="sroControls:CIFNormalTile">
                     <Rectangle Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
                         <Rectangle.Fill>

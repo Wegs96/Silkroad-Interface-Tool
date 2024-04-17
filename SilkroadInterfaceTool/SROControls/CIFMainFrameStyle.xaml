@@ -4,6 +4,7 @@
     <Style TargetType="sroControls:CIFMainFrame">
         <Setter Property="Template">
             <Setter.Value>
+                <!-- TODO: Dynamic resize textures depends on Canvas size-->
                 <ControlTemplate TargetType="sroControls:CIFMainFrame">
                     <Border
                         BorderThickness="1"

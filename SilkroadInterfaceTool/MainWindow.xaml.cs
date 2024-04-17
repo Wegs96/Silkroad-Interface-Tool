@@ -29,6 +29,7 @@ public partial class MainWindow : Window
         DefaultStyleKeyProperty.OverrideMetadata(typeof(CIFStatic), new FrameworkPropertyMetadata(typeof(CIFStatic)));
     }
 
+    // TODO: To be removed and replaced with Right Click Context menu
     /// <summary>
     /// On Control Drop Event Handler
     /// </summary>
