@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sroControls="clr-namespace:SilkroadInterfaceTool.SROControls">
+    <Style TargetType="sroControls:CIFNormalTile">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sroControls:CIFNormalTile">
+                    <Rectangle Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Textures/Tiles/com_bg_tile_b.png" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -50,6 +50,8 @@
       <Resource Include="Textures\Frame\frame_right_side.png" />
       <None Remove="Textures\Frame\frame_right_up.png" />
       <Resource Include="Textures\Frame\frame_right_up.png" />
+      <None Remove="Textures\Tiles\com_bg_tile_b.png" />
+      <Resource Include="Textures\Tiles\com_bg_tile_b.png" />
     </ItemGroup>
 
     <ItemGroup>
