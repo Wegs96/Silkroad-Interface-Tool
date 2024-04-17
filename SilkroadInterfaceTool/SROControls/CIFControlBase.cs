@@ -14,6 +14,17 @@ namespace SilkroadInterfaceTool.SROControls;
 
 public class CIFControlBase : Control, INotifyPropertyChanged
 {
+    #region Constructor
+
+    protected CIFControlBase(UIElement parent)
+    {
+        //maybe it isn't necessary !? 
+        this._parent = parent;
+        
+    }
+
+    #endregion
+
 
     /// <summary>
     /// Default Setup , to be overridden from controls
@@ -165,6 +176,10 @@ public class CIFControlBase : Control, INotifyPropertyChanged
         set
         {
             m_Rect = value;
+            
+            Width = value.Width;
+            Height = value.Height;
+            
             OnPropertyChanged();
         }
     }
@@ -279,15 +294,49 @@ public class CIFControlBase : Control, INotifyPropertyChanged
 
     #endregion
 
-    #region Constructor
+    #region MyRegion
 
-    protected CIFControlBase(UIElement parent)
+    public void SetCIFRectWidth(double width)
     {
-        //maybe it isn't necessary !? 
-        this._parent = parent;
+        m_Rect.Width = width;
+        Width = m_Rect.Width;
+        OnPropertyChanged(nameof(CIFRect));
+    }
+    public void SetCIFRectHeight(double height)
+    {
+        m_Rect.Height = height;
+        Height = m_Rect.Height;
+        OnPropertyChanged(nameof(CIFRect));
+    }
+    /// <summary>
+    /// Changes CIFRect X & Y to a given valeus
+    /// transform param should be always false on dragging the control
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="transform"></param>
+    public void SetCIFRectPosition(double x , double y,bool transform = false)
+    {
+        if((int)CIFRect.X == (int)x && (int)CIFRect.Y == (int)y)
+            return;
+        
+        //Debug.WriteLine("Old Pos: X:"+CIFRect.X + " Y:"+CIFRect.Y );
+        
+        m_Rect.X = x;  
+        m_Rect.Y = y;
+
+        if (transform)
+            this.RenderTransform = new TranslateTransform(x,
+                y);
+        
+        OnPropertyChanged(nameof(CIFRect));
+       // Debug.WriteLine("New Pos: X:"+CIFRect.X + " Y:"+CIFRect.Y );
+
     }
 
     #endregion
+    
+
     
     #region OnPropertyChanged
 
@@ -333,8 +382,10 @@ public class CIFControlBase : Control, INotifyPropertyChanged
             (mousePosition.X < container.ActualWidth && mousePosition.Y < container.ActualHeight))
         {
             // Debug.Write(mousePosition.X + ":" + mousePosition.Y + "\n");
-            this.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X,
+           var trans = this.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X,
                 mousePosition.Y - _positionInBlock.Y);
+
+           SetCIFRectPosition(trans.Value.OffsetX, trans.Value.OffsetY);
         }
         else
             this.ReleaseMouseCapture();
@@ -349,4 +400,5 @@ public class CIFControlBase : Control, INotifyPropertyChanged
 
     #endregion
    
+    
 }
