@@ -65,6 +65,7 @@ public partial class MainWindow : Window
                 "CIFButton" => new CIFButton(designArea),
                 "CIFStatic" => new CIFStatic(designArea),
                 "CIFGauge" => new CIFGauge(designArea),
+                "CIFCheckBox" => new CIFCheckBox(designArea),
 
                 _ => throw new ArgumentOutOfRangeException()
             };

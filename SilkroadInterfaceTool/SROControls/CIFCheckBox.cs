@@ -1,29 +1,30 @@
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
-public class CIFGauge : CIFControlBase
+public class CIFCheckBox : CIFControlBase
 {
-    public CIFGauge(UIElement parent) : base(parent)
+    public CIFCheckBox(UIElement parent) : base(parent)
     {
-        CIFType = CIFType.CIFGauge;
+        CIFType = CIFType.CIFCheckBox;
     }
-
+    
     public override void DefaultSetup()
     {
         base.DefaultSetup();
         
         CIFClientRect = new Rect(0, 0, 0, 0);
-        CIFColor = Color.FromArgb(255,28,181,42);
-        CIFDDJ = "interface\\\\playerminiinfo\\\\pmi_hp.ddj";
+        CIFColor = Color.FromArgb(255,255,255,255);
+        CIFDDJ = "interface\\\\ifcommon\\\\com_checkbutton_off.ddj";
         CIFFontColor = Color.FromArgb(255,255,255,255);
         CIFFontIndex = 0;
-        CIFHAlign = 0;
-        CIFRect = new Rect(0,0,124,12);
+        CIFHAlign = 1;
+        CIFRect = new Rect(0,0,16,16);
         CIFStyle = 0;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
@@ -33,14 +34,11 @@ public class CIFGauge : CIFControlBase
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
     }
-
     protected override void OnRender(DrawingContext drawingContext)
     {
         base.OnRender(drawingContext);
         
-        var gaugeTexture = ResourceHelper.GetBitmapImageFromRes("Textures/Gauge/red_gauge.png");
-        drawingContext.DrawImage(gaugeTexture,new Rect(0,0,CIFRect.Width,CIFRect.Height));
-        
+        var btnTexture = ResourceHelper.GetBitmapImageFromRes("Textures/CheckBox/checkbutton_on.png");
+        drawingContext.DrawImage(btnTexture,new Rect(0,0,CIFRect.Width,CIFRect.Height));
     }
 }
-

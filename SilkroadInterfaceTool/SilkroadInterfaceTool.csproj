@@ -58,6 +58,10 @@
       <Resource Include="Textures\Gauge\blue_gauge.png" />
       <None Remove="Textures\Gauge\red_gauge.png" />
       <Resource Include="Textures\Gauge\red_gauge.png" />
+      <None Remove="Textures\CheckBox\checkbutton_off.png" />
+      <Resource Include="Textures\CheckBox\checkbutton_off.png" />
+      <None Remove="Textures\CheckBox\checkbutton_on.png" />
+      <Resource Include="Textures\CheckBox\checkbutton_on.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -71,6 +75,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Textures\CheckBox\" />
       <Folder Include="Textures\Gauge\" />
     </ItemGroup>
 
