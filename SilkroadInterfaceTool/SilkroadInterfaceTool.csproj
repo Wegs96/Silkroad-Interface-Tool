@@ -12,6 +12,7 @@
       <Compile Remove="BindableVars\BindingRect.cs" />
       <Compile Remove="BindableVars\BindingPoint.cs" />
       <Compile Remove="BindableVars\**" />
+      <Compile Remove="SROControls\Converters\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -52,14 +53,17 @@
       <Resource Include="Textures\Frame\frame_right_up.png" />
       <None Remove="Textures\Tiles\com_bg_tile_b.png" />
       <Resource Include="Textures\Tiles\com_bg_tile_b.png" />
+      <None Remove="SROControls\Converters\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="BindableVars\**" />
+      <EmbeddedResource Remove="SROControls\Converters\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Page Remove="BindableVars\**" />
+      <Page Remove="SROControls\Converters\**" />
     </ItemGroup>
 
 </Project>

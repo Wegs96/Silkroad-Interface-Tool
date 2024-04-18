@@ -1,5 +1,8 @@
-using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using SilkroadInterfaceTool.Helpers;
+using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
@@ -9,9 +12,6 @@ public class CIFButton : CIFControlBase
     public CIFButton(UIElement parent) : base(parent)
     {
         CIFType = CIFType.CIFButton;
-
-        Height = 24;
-        Width = 152;
     }
     
     public override void DefaultSetup()
@@ -35,7 +35,13 @@ public class CIFButton : CIFControlBase
         CIFVAlign = 0;
         
         //-------\\
-        Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
+     //   Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
-   
+
+    protected override void OnRender(DrawingContext drawingContext)
+    {
+        base.OnRender(drawingContext);
+        var btnTexture = ResourceHelper.GetBitmapImageFromRes("Textures/sys_button.png");
+        drawingContext.DrawImage(btnTexture,new Rect(0,0,CIFRect.Width,CIFRect.Height));
+    }
 }

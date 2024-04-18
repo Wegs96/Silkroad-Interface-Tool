@@ -1,5 +1,7 @@
-using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
+using SilkroadInterfaceTool.Helpers;
+using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
@@ -34,9 +36,17 @@ public class CIFNormalTile : CIFControlBase
         CIFVAlign = 0;
         
         //-------\\
-        Width = CIFRect.Width;
-        Height = CIFRect.Height;
-        Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
+        // Width = CIFRect.Width;
+        // Height = CIFRect.Height;
+       // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
 
+    }
+
+    protected override void OnRender(DrawingContext drawingContext)
+    {
+        base.OnRender(drawingContext);
+        var tileTexture = ResourceHelper.GetBitmapImageFromRes("Textures/Tiles/com_bg_tile_b.png");
+
+        ImageHelper.FillPattern(drawingContext, tileTexture, new Rect(0,0,CIFRect.Width,CIFRect.Height));
     }
 }

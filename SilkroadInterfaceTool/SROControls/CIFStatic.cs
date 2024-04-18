@@ -1,5 +1,7 @@
-using System.Drawing;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Media;
+using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
@@ -34,8 +36,29 @@ public class CIFStatic : CIFControlBase
         CIFVAlign = 0;
         
         //-------\\
-        Width = CIFRect.Width;
-        Height = CIFRect.Height;
-        Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
+        // Width = CIFRect.Width;
+        // Height = CIFRect.Height;
+        // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
+    }
+
+    protected override void OnRender(DrawingContext drawingContext)
+    {
+        base.OnRender(drawingContext);
+        
+        var p = new Pen(Brushes.Gold, 1);
+        
+        drawingContext.DrawLine(p,new Point(0,0),new Point(CIFRect.Width,0));
+        drawingContext.DrawLine(p,new Point(0,0),new Point(0,CIFRect.Height));
+        drawingContext.DrawLine(p,new Point(CIFRect.Width,CIFRect.Height),new Point(0,CIFRect.Height));
+        drawingContext.DrawLine(p,new Point(CIFRect.Width,0),new Point(CIFRect.Width,CIFRect.Height));
+
+        var fText = new FormattedText("CIFStatic", CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface("Arial"), 9, Brushes.White,
+            VisualTreeHelper.GetDpi(this).PixelsPerDip)
+        {
+            TextAlignment = TextAlignment.Center,
+            LineHeight = CIFRect.Height
+        };
+
+        drawingContext.DrawText(fText, new Point(CIFRect.Width / 2,0));
     }
 }
