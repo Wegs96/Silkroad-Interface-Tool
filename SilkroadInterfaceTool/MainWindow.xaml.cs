@@ -64,6 +64,8 @@ public partial class MainWindow : Window
                 "CIFNormalTile" => new CIFNormalTile(designArea),
                 "CIFButton" => new CIFButton(designArea),
                 "CIFStatic" => new CIFStatic(designArea),
+                "CIFGauge" => new CIFGauge(designArea),
+
                 _ => throw new ArgumentOutOfRangeException()
             };
 

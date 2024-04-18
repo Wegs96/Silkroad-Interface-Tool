@@ -33,6 +33,10 @@
                 <TextBlock Foreground="White" TextAlignment="Center" FontWeight="Bold">CIFStatic</TextBlock>
             </Border>
             <Separator Margin="0,5,0,5"/>
+            <Border Name="CIFGAUGE" Tag="CIFGauge" MouseMove="CIFControls_OnMouseMove" BorderBrush="Gold" BorderThickness="1" Background="#1A1A1A" Width="152" Height="24">
+                <TextBlock Foreground="White" TextAlignment="Center" FontWeight="Bold">CIFGauge</TextBlock>
+            </Border>
+            <Separator Margin="0,5,0,5"/>
            
         </StackPanel>
     </Grid>

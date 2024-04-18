@@ -54,6 +54,10 @@
       <None Remove="Textures\Tiles\com_bg_tile_b.png" />
       <Resource Include="Textures\Tiles\com_bg_tile_b.png" />
       <None Remove="SROControls\Converters\**" />
+      <None Remove="Textures\Gauge\blue_gauge.png" />
+      <Resource Include="Textures\Gauge\blue_gauge.png" />
+      <None Remove="Textures\Gauge\red_gauge.png" />
+      <Resource Include="Textures\Gauge\red_gauge.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -64,6 +68,10 @@
     <ItemGroup>
       <Page Remove="BindableVars\**" />
       <Page Remove="SROControls\Converters\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Textures\Gauge\" />
     </ItemGroup>
 
 </Project>
