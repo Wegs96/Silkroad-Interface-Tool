@@ -1,12 +1,15 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
+
 namespace SilkroadInterfaceTool.SROControls;
 
 public enum CIFType
 {
     CIFUNKNOWN = 0,
     CIFMainFrame = 1,
-    CIFFrame, CIFSubFrame = 2,
+    CIFFrame = 2,
+
+    // CIFSubFrame =55,
     CIFNormalTile = 3,
     CIFButton = 10,
     CIFStatic = 20,

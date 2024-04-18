@@ -2,47 +2,24 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
-using Color = System.Drawing.Color;
-using Point = System.Windows.Point;
-
-// ReSharper disable InconsistentNaming
 
 namespace SilkroadInterfaceTool.SROControls;
 
-public class CIFControlBase : Control, INotifyPropertyChanged
+public class CIFMainFrameBase : Canvas
 {
-    #region Constructor
-
-    protected CIFControlBase()
-    {
-    }
-
-    #endregion
-
-
-    /// <summary>
-    /// Default Setup , to be overridden from controls
-    /// </summary>
-    public virtual void DefaultSetup()
+    protected CIFMainFrameBase()
     {
         this.ContextMenu = new ContextMenu();
-        var removeItem = new MenuItem();
-        removeItem.Header = "Remove Me";
-        removeItem.Click += (sender, args) =>
-        {
-            Globals.CIFControlList.Remove(this);
-            var container = VisualTreeHelper.GetParent(this) as Canvas;
-            container?.Children.Remove(this);
-        };
+    }
 
-        this.ContextMenu.Items.Add(removeItem);
+    public virtual void DefaultSetup()
+    {
+        //
+        CIFType = CIFType.CIFMainFrame;
     }
 
     #region Private Properties
-
-    private UIElement? _parent;
 
     private string m_Name = "";
     private CIFType m_type = CIFType.CIFUNKNOWN;
@@ -333,7 +310,6 @@ public class CIFControlBase : Control, INotifyPropertyChanged
 
     #endregion
 
-
     #region OnPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -355,45 +331,44 @@ public class CIFControlBase : Control, INotifyPropertyChanged
 
     #region Dragable control
 
-    private Point _positionInBlock;
-
-    protected override void OnMouseDown(MouseButtonEventArgs e)
-    {
-        base.OnMouseDown(e);
-
-        if (e.LeftButton == MouseButtonState.Pressed)
-        {
-            _positionInBlock = Mouse.GetPosition(this);
-            this.CaptureMouse();
-        }
-    }
-
-    protected override void OnMouseMove(MouseEventArgs e)
-    {
-        base.OnMouseMove(e);
-
-        if (!this.IsMouseCaptured) return;
-        var container = VisualTreeHelper.GetParent(this) as Canvas;
-        var mousePosition = e.GetPosition(container);
-        if (container != null && mousePosition is { X: > 0, Y: > 0 } &&
-            (mousePosition.X < container.ActualWidth && mousePosition.Y < container.ActualHeight))
-        {
-            // Debug.Write(mousePosition.X + ":" + mousePosition.Y + "\n");
-            var trans = this.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X,
-                mousePosition.Y - _positionInBlock.Y);
-
-            SetCIFRectPosition(trans.Value.OffsetX, trans.Value.OffsetY);
-        }
-        else
-            this.ReleaseMouseCapture();
-    }
-
-    protected override void OnMouseUp(MouseButtonEventArgs e)
-    {
-        base.OnMouseUp(e);
-
-        this.ReleaseMouseCapture();
-    }
+    // private Point _positionInBlock;
+    // protected override void OnMouseDown(MouseButtonEventArgs e)
+    // {
+    //     base.OnMouseDown(e);
+    //
+    //     if (e.LeftButton == MouseButtonState.Pressed)
+    //     {
+    //         _positionInBlock = Mouse.GetPosition(this);
+    //         this.CaptureMouse();
+    //     }
+    // }
+    //
+    // protected override void OnMouseMove(MouseEventArgs e)
+    // {
+    //     base.OnMouseMove(e);
+    //
+    //     if (!this.IsMouseCaptured) return;
+    //     var container = VisualTreeHelper.GetParent(this) as Canvas;
+    //     var mousePosition = e.GetPosition(container);
+    //     if (container != null && mousePosition is { X: > 0, Y: > 0 } &&
+    //         (mousePosition.X < container.ActualWidth && mousePosition.Y < container.ActualHeight))
+    //     {
+    //         // Debug.Write(mousePosition.X + ":" + mousePosition.Y + "\n");
+    //         var trans = this.RenderTransform = new TranslateTransform(mousePosition.X - _positionInBlock.X,
+    //             mousePosition.Y - _positionInBlock.Y);
+    //
+    //         SetCIFRectPosition(trans.Value.OffsetX, trans.Value.OffsetY);
+    //     }
+    //     else
+    //         this.ReleaseMouseCapture();
+    // }
+    //
+    // protected override void OnMouseUp(MouseButtonEventArgs e)
+    // {
+    //     base.OnMouseUp(e);
+    //     
+    //     this.ReleaseMouseCapture();
+    // }
 
     #endregion
 }

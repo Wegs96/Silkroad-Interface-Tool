@@ -6,11 +6,11 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
-public class CIFCheckBox : CIFControlBase
+public class CIFEdit : CIFControlBase
 {
-    public CIFCheckBox() : base()
+    public CIFEdit() : base()
     {
-        CIFType = CIFType.CIFCheckBox;
+        CIFType = CIFType.CIFEdit;
     }
 
     public override void DefaultSetup()

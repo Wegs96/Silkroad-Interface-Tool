@@ -8,7 +8,7 @@ namespace SilkroadInterfaceTool.SROControls;
 
 public class CIFGauge : CIFControlBase
 {
-    public CIFGauge(UIElement parent) : base(parent)
+    public CIFGauge() : base()
     {
         CIFType = CIFType.CIFGauge;
     }
@@ -16,14 +16,14 @@ public class CIFGauge : CIFControlBase
     public override void DefaultSetup()
     {
         base.DefaultSetup();
-        
+
         CIFClientRect = new Rect(0, 0, 0, 0);
-        CIFColor = Color.FromArgb(255,28,181,42);
+        CIFColor = Color.FromArgb(255, 28, 181, 42);
         CIFDDJ = "interface\\\\playerminiinfo\\\\pmi_hp.ddj";
-        CIFFontColor = Color.FromArgb(255,255,255,255);
+        CIFFontColor = Color.FromArgb(255, 255, 255, 255);
         CIFFontIndex = 0;
         CIFHAlign = 0;
-        CIFRect = new Rect(0,0,124,12);
+        CIFRect = new Rect(0, 0, 124, 12);
         CIFStyle = 0;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
@@ -37,10 +37,8 @@ public class CIFGauge : CIFControlBase
     protected override void OnRender(DrawingContext drawingContext)
     {
         base.OnRender(drawingContext);
-        
+
         var gaugeTexture = ResourceHelper.GetBitmapImageFromRes("Textures/Gauge/red_gauge.png");
-        drawingContext.DrawImage(gaugeTexture,new Rect(0,0,CIFRect.Width,CIFRect.Height));
-        
+        drawingContext.DrawImage(gaugeTexture, new Rect(0, 0, CIFRect.Width, CIFRect.Height));
     }
 }
-
