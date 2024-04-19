@@ -11,7 +11,7 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
-public class CIFControlBase : Control, INotifyPropertyChanged
+public class CIFControlBase : Canvas, INotifyPropertyChanged
 {
     #region Constructor
 
