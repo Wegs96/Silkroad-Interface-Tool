@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace SilkroadInterfaceTool.SROControls;
 
-public class CIFMainFrameBase : Canvas
+public class CIFMainFrameBase : Canvas, INotifyPropertyChanged
 {
     protected CIFMainFrameBase()
     {
