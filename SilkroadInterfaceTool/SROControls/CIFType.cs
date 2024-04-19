@@ -15,5 +15,6 @@ public enum CIFType
     CIFStatic = 20,
     CIFEdit = 30,
     CIFGauge = 40,
-    CIFCheckBox = 50
+    CIFCheckBox = 50,
+    CIFTextBox = 60,
 }
