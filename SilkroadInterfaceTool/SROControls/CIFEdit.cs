@@ -1,6 +1,6 @@
+using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
-using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
@@ -19,11 +19,11 @@ public class CIFEdit : CIFControlBase
 
         CIFClientRect = new Rect(0, 0, 0, 0);
         CIFColor = Color.FromArgb(255, 255, 255, 255);
-        CIFDDJ = "interface\\\\ifcommon\\\\com_checkbutton_off.ddj";
+        CIFDDJ = string.Empty;
         CIFFontColor = Color.FromArgb(255, 255, 255, 255);
         CIFFontIndex = 0;
-        CIFHAlign = 1;
-        CIFRect = new Rect(0, 0, 16, 16);
+        CIFHAlign = 0;
+        CIFRect = new Rect(0, 0, 100, 15);
         CIFStyle = 0;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
@@ -38,7 +38,21 @@ public class CIFEdit : CIFControlBase
     {
         base.OnRender(drawingContext);
 
-        var btnTexture = ResourceHelper.GetBitmapImageFromRes("Textures/CheckBox/checkbutton_on.png");
-        drawingContext.DrawImage(btnTexture, new Rect(0, 0, CIFRect.Width, CIFRect.Height));
+        var p = new Pen(Brushes.Red, 1);
+
+        drawingContext.DrawLine(p, new Point(0, 0), new Point(CIFRect.Width, 0));
+        drawingContext.DrawLine(p, new Point(0, 0), new Point(0, CIFRect.Height));
+        drawingContext.DrawLine(p, new Point(CIFRect.Width, CIFRect.Height), new Point(0, CIFRect.Height));
+        drawingContext.DrawLine(p, new Point(CIFRect.Width, 0), new Point(CIFRect.Width, CIFRect.Height));
+
+        var fText = new FormattedText("CIFEdit", CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight,
+            new Typeface("Arial"), 9, Brushes.White,
+            VisualTreeHelper.GetDpi(this).PixelsPerDip)
+        {
+            TextAlignment = TextAlignment.Center,
+            LineHeight = CIFRect.Height
+        };
+
+        drawingContext.DrawText(fText, new Point(CIFRect.Width / 2, 0));
     }
 }

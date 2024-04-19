@@ -34,6 +34,7 @@ public class CIFMainFrame : CIFMainFrameBase
                         "CIFStatic" => new CIFStatic(),
                         "CIFGauge" => new CIFGauge(),
                         "CIFCheckBox" => new CIFCheckBox(),
+                        "CIFEdit" => new CIFEdit(),
                         _ => throw new ArgumentOutOfRangeException()
                     };
 
