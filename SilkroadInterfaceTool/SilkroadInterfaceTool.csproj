@@ -12,20 +12,71 @@
       <Compile Remove="BindableVars\BindingRect.cs" />
       <Compile Remove="BindableVars\BindingPoint.cs" />
       <Compile Remove="BindableVars\**" />
+      <Compile Remove="SROControls\Converters\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Textures\sys_button.png" />
       <Resource Include="Textures\sys_button.png" />
       <None Remove="BindableVars\**" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_side.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_side.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_left_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_left_up.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_mid_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_mid_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_mid_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_mid_up.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_down.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_down.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_side.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_side.png" />
+      <None Remove="Textures\MainFrame\mframe_wnd_right_up.png" />
+      <Resource Include="Textures\MainFrame\mframe_wnd_right_up.png" />
+      <None Remove="Textures\Frame\frame_left_down.png" />
+      <Resource Include="Textures\Frame\frame_left_down.png" />
+      <None Remove="Textures\Frame\frame_left_side.png" />
+      <Resource Include="Textures\Frame\frame_left_side.png" />
+      <None Remove="Textures\Frame\frame_left_up.png" />
+      <Resource Include="Textures\Frame\frame_left_up.png" />
+      <None Remove="Textures\Frame\frame_mid_down.png" />
+      <Resource Include="Textures\Frame\frame_mid_down.png" />
+      <None Remove="Textures\Frame\frame_mid_up.png" />
+      <Resource Include="Textures\Frame\frame_mid_up.png" />
+      <None Remove="Textures\Frame\frame_right_down.png" />
+      <Resource Include="Textures\Frame\frame_right_down.png" />
+      <None Remove="Textures\Frame\frame_right_side.png" />
+      <Resource Include="Textures\Frame\frame_right_side.png" />
+      <None Remove="Textures\Frame\frame_right_up.png" />
+      <Resource Include="Textures\Frame\frame_right_up.png" />
+      <None Remove="Textures\Tiles\com_bg_tile_b.png" />
+      <Resource Include="Textures\Tiles\com_bg_tile_b.png" />
+      <None Remove="SROControls\Converters\**" />
+      <None Remove="Textures\Gauge\blue_gauge.png" />
+      <Resource Include="Textures\Gauge\blue_gauge.png" />
+      <None Remove="Textures\Gauge\red_gauge.png" />
+      <Resource Include="Textures\Gauge\red_gauge.png" />
+      <None Remove="Textures\CheckBox\checkbutton_off.png" />
+      <Resource Include="Textures\CheckBox\checkbutton_off.png" />
+      <None Remove="Textures\CheckBox\checkbutton_on.png" />
+      <Resource Include="Textures\CheckBox\checkbutton_on.png" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="BindableVars\**" />
+      <EmbeddedResource Remove="SROControls\Converters\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Page Remove="BindableVars\**" />
+      <Page Remove="SROControls\Converters\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Textures\CheckBox\" />
+      <Folder Include="Textures\Gauge\" />
     </ItemGroup>
 
 </Project>

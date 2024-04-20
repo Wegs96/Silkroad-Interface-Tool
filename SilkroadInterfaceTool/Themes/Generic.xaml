@@ -1,7 +1,10 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SROControls/CIFButtonStyle.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="/SROControls/CIFStaticStyle.xaml"></ResourceDictionary>
+        <!-- <ResourceDictionary Source="/SROControls/CIFButtonStyle.xaml"></ResourceDictionary> -->
+        <!-- <ResourceDictionary Source="/SROControls/CIFStaticStyle.xaml"></ResourceDictionary> -->
+        <!-- <ResourceDictionary Source="/SROControls/CIFMainFrameStyle.xaml"></ResourceDictionary> -->
+        <!-- <ResourceDictionary Source="/SROControls/CIFFrameStyle.xaml"></ResourceDictionary> -->
+        <!-- <ResourceDictionary Source="/SROControls/CIFNormalTileStyle.xaml"></ResourceDictionary> -->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

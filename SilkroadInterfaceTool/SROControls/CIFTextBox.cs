@@ -6,14 +6,11 @@ using Point = System.Windows.Point;
 
 namespace SilkroadInterfaceTool.SROControls;
 
-/// <summary>
-/// CIFStatic which can be a Label or a Static image if ddj is set
-/// </summary>
-public class CIFStatic : CIFControlBase
+public class CIFTextBox : CIFControlBase
 {
-    public CIFStatic() : base()
+    public CIFTextBox() : base()
     {
-        CIFType = CIFType.CIFStatic;
+        CIFType = CIFType.CIFTextBox;
     }
 
     public override void DefaultSetup()
@@ -21,46 +18,39 @@ public class CIFStatic : CIFControlBase
         base.DefaultSetup();
 
         CIFClientRect = new Rect(0, 0, 0, 0);
-        CIFColor = Color.FromArgb(255, 214, 171, 46);
+        CIFColor = Color.FromArgb(255, 117, 6, 140);
         CIFDDJ = string.Empty;
-        CIFFontColor = Color.FromArgb(255, 254, 251, 216);
-        CIFFontIndex = 1;
-        CIFHAlign = 1;
-        CIFRect = new Rect(0, 0, 120, 20);
+        CIFFontColor = Color.FromArgb(255, 255, 255, 255);
+        CIFFontIndex = 0;
+        CIFHAlign = 0;
+        CIFRect = new Rect(0, 0, 200, 100);
         CIFStyle = 0;
-        ;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
+        CIFUV_LB = new Point(0, 1);
         CIFUV_LT = new Point(0, 0);
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-
-        //-------\\
-        // Width = CIFRect.Width;
-        // Height = CIFRect.Height;
-        // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
 
     protected override void OnRender(DrawingContext drawingContext)
     {
         base.OnRender(drawingContext);
 
-        var p = new Pen(Brushes.Gold, 1);
+        var p = new Pen(Brushes.GreenYellow, 1);
 
         drawingContext.DrawLine(p, new Point(0, 0), new Point(CIFRect.Width, 0));
         drawingContext.DrawLine(p, new Point(0, 0), new Point(0, CIFRect.Height));
         drawingContext.DrawLine(p, new Point(CIFRect.Width, CIFRect.Height), new Point(0, CIFRect.Height));
         drawingContext.DrawLine(p, new Point(CIFRect.Width, 0), new Point(CIFRect.Width, CIFRect.Height));
 
-        var fText = new FormattedText("CIFStatic", CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight,
-            new Typeface("Arial"), 9, Brushes.White,
+        var fText = new FormattedText("CIFTextBox", CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight,
+            new Typeface("Arial"), 16, Brushes.White,
             VisualTreeHelper.GetDpi(this).PixelsPerDip)
         {
             TextAlignment = TextAlignment.Center,
-            LineHeight = CIFRect.Height
         };
-
-        drawingContext.DrawText(fText, new Point(CIFRect.Width / 2, 0));
+        drawingContext.DrawText(fText, new Point(CIFRect.Width / 2, CIFRect.Height / 2));
     }
 }
