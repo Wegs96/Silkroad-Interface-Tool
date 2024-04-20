@@ -1,7 +1,9 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using SilkroadInterfaceTool.Helpers;
+using SilkroadInterfaceTool.SROControls.Helpers;
 
 namespace SilkroadInterfaceTool.SROControls;
 
@@ -49,6 +51,8 @@ public class CIFMainFrame : CIFMainFrameBase
                     //Setting up the control's position to Center area
                     //  sroControl.RenderTransform = new TranslateTransform((Width / 2) - (sroControl.Width / 2), (Height / 2) - (sroControl.Height / 2));
                     sroControl.RenderTransform = new TranslateTransform(sroControl.CIFRect.X, sroControl.CIFRect.Y);
+                    //make the control resizeable
+                    AdornerLayer.GetAdornerLayer(this)?.Add(new CResizeAdorner(sroControl));
                 };
 
                 ContextMenu.Items.Add(mItem);

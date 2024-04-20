@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using System.Windows.Documents;
 using SilkroadInterfaceTool.SROControls;
+using SilkroadInterfaceTool.SROControls.Helpers;
 
 namespace SilkroadInterfaceTool;
 
@@ -19,5 +21,7 @@ public partial class MainWindow : Window
         var mainframe = new CIFMainFrame();
         mainframe.DefaultSetup();
         designArea.designCanvas.Children.Add(mainframe);
+        //MainFrame Resizable !
+        AdornerLayer.GetAdornerLayer(designArea.designCanvas)?.Add(new CResizeAdorner(mainframe));
     }
 }

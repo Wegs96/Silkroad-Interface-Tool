@@ -18,6 +18,8 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
 
     protected CIFControlBase()
     {
+        MinHeight = 10;
+        MinWidth = 10;
     }
 
     #endregion
@@ -295,7 +297,8 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectWidth(double width)
     {
-        if (width < 1) return;
+        if (width < MinWidth) return;
+
         m_Rect.Width = width;
         Width = m_Rect.Width;
         OnPropertyChanged(nameof(CIFRect));
@@ -303,7 +306,7 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectHeight(double height)
     {
-        if (height < 1) return;
+        if (height < MinHeight) return;
 
         m_Rect.Height = height;
         Height = m_Rect.Height;

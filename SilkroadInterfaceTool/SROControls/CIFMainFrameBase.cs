@@ -11,6 +11,10 @@ public class CIFMainFrameBase : Canvas, INotifyPropertyChanged
     protected CIFMainFrameBase()
     {
         this.ContextMenu = new ContextMenu();
+
+        MinHeight = 200;
+        MinWidth = 200;
+        // ClipToBounds = true;
     }
 
     public virtual void DefaultSetup()
@@ -271,6 +275,8 @@ public class CIFMainFrameBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectWidth(double width)
     {
+        if (width < MinWidth) return;
+
         m_Rect.Width = width;
         Width = m_Rect.Width;
         OnPropertyChanged(nameof(CIFRect));
@@ -278,6 +284,8 @@ public class CIFMainFrameBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectHeight(double height)
     {
+        if (height < MinHeight) return;
+
         m_Rect.Height = height;
         Height = m_Rect.Height;
         OnPropertyChanged(nameof(CIFRect));
