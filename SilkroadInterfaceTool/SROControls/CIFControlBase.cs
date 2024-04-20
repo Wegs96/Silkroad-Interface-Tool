@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -294,6 +295,7 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectWidth(double width)
     {
+        if (width < 1) return;
         m_Rect.Width = width;
         Width = m_Rect.Width;
         OnPropertyChanged(nameof(CIFRect));
@@ -301,6 +303,8 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
 
     public void SetCIFRectHeight(double height)
     {
+        if (height < 1) return;
+
         m_Rect.Height = height;
         Height = m_Rect.Height;
         OnPropertyChanged(nameof(CIFRect));
@@ -372,7 +376,11 @@ public class CIFControlBase : Canvas, INotifyPropertyChanged
     {
         base.OnMouseMove(e);
 
+        //Check if mouse is begin Captured otherwise return
         if (!this.IsMouseCaptured) return;
+        //Check if Ctrl Button is down otherwise return
+        if (!Keyboard.IsKeyDown(Key.LeftCtrl) && !Keyboard.IsKeyDown(Key.RightCtrl)) return;
+
         var container = VisualTreeHelper.GetParent(this) as Canvas;
         var mousePosition = e.GetPosition(container);
         if (container != null && mousePosition is { X: > 0, Y: > 0 } &&
