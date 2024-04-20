@@ -11,6 +11,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.Loaded += OnLoaded;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
         var mainframe = new CIFMainFrame();
         mainframe.DefaultSetup();
         designArea.designCanvas.Children.Add(mainframe);
