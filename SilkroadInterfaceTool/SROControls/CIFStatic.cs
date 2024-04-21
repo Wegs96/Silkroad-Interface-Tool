@@ -4,14 +4,14 @@ using System.Windows.Media;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
 /// <summary>
 /// CIFStatic which can be a Label or a Static image if ddj is set
 /// </summary>
-public class CIFStatic : CIFControlBase
+public class CIFStatic : CIFControl
 {
-    public CIFStatic() : base()
+    public CIFStatic(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFStatic;
     }
@@ -28,18 +28,12 @@ public class CIFStatic : CIFControlBase
         CIFHAlign = 1;
         CIFRect = new Rect(0, 0, 120, 20);
         CIFStyle = 0;
-        ;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
         CIFUV_LT = new Point(0, 0);
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-
-        //-------\\
-        // Width = CIFRect.Width;
-        // Height = CIFRect.Height;
-        // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
 
     protected override void OnRender(DrawingContext drawingContext)

@@ -4,11 +4,11 @@ using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
-public class CIFCheckBox : CIFControlBase
+public class CIFCheckBox : CIFControl
 {
-    public CIFCheckBox() : base()
+    public CIFCheckBox(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFCheckBox;
     }

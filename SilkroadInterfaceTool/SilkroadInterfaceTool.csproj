@@ -62,6 +62,12 @@
       <Resource Include="Textures\CheckBox\checkbutton_off.png" />
       <None Remove="Textures\CheckBox\checkbutton_on.png" />
       <Resource Include="Textures\CheckBox\checkbutton_on.png" />
+        <None Remove="Textures\Cursors\HandSroCursor.cur"/>
+        <Resource Include="Textures\Cursors\HandSroCursor.cur"/>
+        <None Remove="Textures\Cursors\MainSroCursor.cur"/>
+        <Resource Include="Textures\Cursors\MainSroCursor.cur"/>
+        <None Remove="Textures\Cursors\ResizeSroCursor.cur"/>
+        <Resource Include="Textures\Cursors\ResizeSroCursor.cur"/>
     </ItemGroup>
 
     <ItemGroup>

@@ -1,7 +1,4 @@
-// ReSharper disable InconsistentNaming
-// ReSharper disable IdentifierTypo
-
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models;
 
 public enum CIFType
 {

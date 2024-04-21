@@ -4,11 +4,11 @@ using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
-public class CIFGauge : CIFControlBase
+public class CIFGauge : CIFControl
 {
-    public CIFGauge() : base()
+    public CIFGauge(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFGauge;
     }
@@ -16,7 +16,6 @@ public class CIFGauge : CIFControlBase
     public override void DefaultSetup()
     {
         base.DefaultSetup();
-
         CIFClientRect = new Rect(0, 0, 0, 0);
         CIFColor = Color.FromArgb(255, 28, 181, 42);
         CIFDDJ = "interface\\\\playerminiinfo\\\\pmi_hp.ddj";

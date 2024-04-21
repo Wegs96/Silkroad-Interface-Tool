@@ -1,19 +1,26 @@
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
 using SilkroadInterfaceTool.Helpers;
-using SilkroadInterfaceTool.SROControls.Helpers;
+using SilkroadInterfaceTool.MVVM.Models.SROControls;
+using Color = System.Drawing.Color;
+using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models;
 
-/// <summary>
-/// CIFMainFrame aka window
-/// </summary>
-public class CIFMainFrame : CIFMainFrameBase
+public class CIFMainFrame : ControlBase
 {
-    public CIFMainFrame() : base()
+    private readonly Dictionary<int, CIFControl> _controlsList; //visual collection ??
+
+    private readonly DesignArea _designArea;
+
+    // private readonly VisualCollection _visualCollection;
+    public CIFMainFrame(DesignArea designArea)
     {
+        _designArea = designArea;
+        _controlsList = new Dictionary<int, CIFControl>();
+        //_visualCollection = new VisualCollection(this);
+
         if (ContextMenu != null)
         {
             foreach (var cType in Enum.GetValues(typeof(CIFType)).Cast<CIFType>())
@@ -27,32 +34,24 @@ public class CIFMainFrame : CIFMainFrameBase
                 mItem.Click += (sender, args) =>
                 {
                     var s = sender as MenuItem;
-                    CIFControlBase sroControl = s?.Tag.ToString() switch
+                    CIFControl sroControl = s?.Tag.ToString() switch
                     {
-                        "CIFFrame" => new CIFFrame(),
-                        "CIFSubFrame" => new CIFFrame(),
-                        "CIFNormalTile" => new CIFNormalTile(),
-                        "CIFButton" => new CIFButton(),
-                        "CIFStatic" => new CIFStatic(),
-                        "CIFGauge" => new CIFGauge(),
-                        "CIFCheckBox" => new CIFCheckBox(),
-                        "CIFEdit" => new CIFEdit(),
-                        "CIFTextBox" => new CIFTextBox(),
+                        "CIFFrame" => new CIFFrame(this),
+                        "CIFSubFrame" => new CIFFrame(this),
+                        "CIFNormalTile" => new CIFNormalTile(this),
+                        "CIFButton" => new CIFButton(this),
+                        "CIFStatic" => new CIFStatic(this),
+                        "CIFGauge" => new CIFGauge(this),
+                        "CIFCheckBox" => new CIFCheckBox(this),
+                        "CIFEdit" => new CIFEdit(this),
+                        "CIFTextBox" => new CIFTextBox(this),
                         _ => throw new ArgumentOutOfRangeException()
                     };
-
-                    //Setting up the default setup for Control
                     sroControl.DefaultSetup();
-                    Globals.CIFControlList.Add(sroControl);
+                    AddControl(sroControl);
+                    //Setting up the default setup for Control
 
-                    //Adding the control into CIFMainFrame's canvas as child element
-                    this.Children.Add(sroControl);
-
-                    //Setting up the control's position to Center area
-                    //  sroControl.RenderTransform = new TranslateTransform((Width / 2) - (sroControl.Width / 2), (Height / 2) - (sroControl.Height / 2));
-                    sroControl.RenderTransform = new TranslateTransform(sroControl.CIFRect.X, sroControl.CIFRect.Y);
-                    //make the control resizeable
-                    AdornerLayer.GetAdornerLayer(this)?.Add(new CResizeAdorner(sroControl));
+                    //    Globals.CIFControlList.Add(sroControl);
                 };
 
                 ContextMenu.Items.Add(mItem);
@@ -60,10 +59,46 @@ public class CIFMainFrame : CIFMainFrameBase
         }
     }
 
-    public override void DefaultSetup()
-    {
-        base.DefaultSetup();
+    public int ControlsCount => _controlsList.Count;
+    public List<CIFControl> ControlsList => _controlsList.Values.ToList();
 
+    protected override void OnInitialized(EventArgs e)
+    {
+        base.OnInitialized(e);
+        //  AdornerLayer.GetAdornerLayer(this)?.Add(new CResizeAdorner(this));
+    }
+
+    public void AddControl(CIFControl ctrl)
+    {
+        if (_controlsList.ContainsValue(ctrl)) return;
+
+        _controlsList.Add(_controlsList.Count > 0 ? _controlsList.Keys.Max() + 1 : 1, ctrl);
+        Children.Add(ctrl);
+        //_visualCollection.Add(ctrl);
+
+        ctrl.RenderTransform = new TranslateTransform(ctrl.CIFRect.X, ctrl.CIFRect.Y);
+    }
+
+    public void RemoveControl(CIFControl ctrl)
+    {
+        if (!_controlsList.ContainsValue(ctrl)) return;
+
+        _controlsList.Remove(_controlsList.FirstOrDefault(p => p.Value == ctrl).Key);
+        this.Children.Remove(ctrl);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        foreach (var ctrl in _controlsList.Values)
+        {
+            ctrl.Arrange(CIFRect);
+        }
+
+        return base.ArrangeOverride(finalSize);
+    }
+
+    public void DefaultSetup()
+    {
         CIFClientRect = new Rect(0, 0, 0, 0);
         CIFColor = Color.FromArgb(0, 0, 0, 0);
         CIFDDJ = "interface\\\\frame\\\\mframe_wnd_";
@@ -79,16 +114,6 @@ public class CIFMainFrame : CIFMainFrameBase
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-    }
-
-    public void AddControl(CIFControlBase control)
-    {
-        this.Children.Add(control);
-    }
-
-    public void RemoveControl(CIFControlBase control)
-    {
-        this.Children.Remove(control);
     }
 
     protected override void OnRender(DrawingContext drawingContext)

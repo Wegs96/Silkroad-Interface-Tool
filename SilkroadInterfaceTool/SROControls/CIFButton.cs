@@ -4,11 +4,11 @@ using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
-public class CIFButton : CIFControlBase
+public class CIFButton : CIFControl
 {
-    public CIFButton() : base()
+    public CIFButton(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFButton;
     }
@@ -32,14 +32,12 @@ public class CIFButton : CIFControlBase
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-
-        //-------\\
-        //   Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
 
     protected override void OnRender(DrawingContext drawingContext)
     {
         base.OnRender(drawingContext);
+
         var btnTexture = ResourceHelper.GetBitmapImageFromRes("Textures/sys_button.png");
         drawingContext.DrawImage(btnTexture, new Rect(0, 0, CIFRect.Width, CIFRect.Height));
     }

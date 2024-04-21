@@ -4,14 +4,14 @@ using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
 /// <summary>
 /// CIFNormalTile , it is a repeated background tile
 /// </summary>
-public class CIFNormalTile : CIFControlBase
+public class CIFNormalTile : CIFControl
 {
-    public CIFNormalTile() : base()
+    public CIFNormalTile(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFNormalTile;
     }
@@ -28,18 +28,12 @@ public class CIFNormalTile : CIFControlBase
         CIFHAlign = 0;
         CIFRect = new Rect(22, 50, 355, 230);
         CIFStyle = 0;
-        ;
         CIFSubSection = string.Empty;
         CIFText = string.Empty;
         CIFUV_LT = new Point(0, 0);
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-
-        //-------\\
-        // Width = CIFRect.Width;
-        // Height = CIFRect.Height;
-        // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
 
     protected override void OnRender(DrawingContext drawingContext)

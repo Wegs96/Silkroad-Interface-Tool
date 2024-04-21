@@ -4,11 +4,11 @@ using System.Windows.Media;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
-public class CIFEdit : CIFControlBase
+public class CIFEdit : CIFControl
 {
-    public CIFEdit() : base()
+    public CIFEdit(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFEdit;
     }

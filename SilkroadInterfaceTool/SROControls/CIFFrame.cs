@@ -4,11 +4,11 @@ using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.SROControls;
+namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
 
-public class CIFFrame : CIFControlBase
+public class CIFFrame : CIFControl
 {
-    public CIFFrame() : base()
+    public CIFFrame(CIFMainFrame mainFrame) : base(mainFrame)
     {
         CIFType = CIFType.CIFFrame;
     }
@@ -32,11 +32,6 @@ public class CIFFrame : CIFControlBase
         CIFUV_RB = new Point(1, 1);
         CIFUV_RT = new Point(1, 0);
         CIFVAlign = 0;
-
-        //-------\\
-        // Width = CIFRect.Width;
-        // Height = CIFRect.Height;
-        // Margin = new Thickness(CIFRect.X,CIFRect.Y,0,0);
     }
 
     protected override void OnRender(DrawingContext drawingContext)
