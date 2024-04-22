@@ -7,7 +7,7 @@ using Point = System.Windows.Point;
 
 #pragma warning disable CS0414 // Field is assigned but its value is never used
 
-namespace SilkroadInterfaceTool.MVVM.Models;
+namespace SilkroadInterfaceTool.Base;
 
 public class CIFControl : ControlBase
 {

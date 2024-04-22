@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using SilkroadInterfaceTool.Base;
 
 namespace SilkroadInterfaceTool;
 
@@ -15,7 +16,7 @@ public partial class MainWindow : Window
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        var dArea = new MVVM.Models.DesignArea(this);
+        var dArea = new DesignArea(this);
         MainDockPanel.Children.Add(dArea);
     }
 }

@@ -1,4 +1,4 @@
-namespace SilkroadInterfaceTool.MVVM.Models;
+namespace SilkroadInterfaceTool.Base;
 
 public enum CIFType
 {

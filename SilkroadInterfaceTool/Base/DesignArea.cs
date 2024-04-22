@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace SilkroadInterfaceTool.MVVM.Models;
+namespace SilkroadInterfaceTool.Base;
 
 public class DesignArea : Canvas
 {

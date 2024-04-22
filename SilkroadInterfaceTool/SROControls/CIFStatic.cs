@@ -1,10 +1,11 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
+using SilkroadInterfaceTool.Base;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
+namespace SilkroadInterfaceTool.SROControls;
 
 /// <summary>
 /// CIFStatic which can be a Label or a Static image if ddj is set

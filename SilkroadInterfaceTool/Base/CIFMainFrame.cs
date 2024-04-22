@@ -2,11 +2,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using SilkroadInterfaceTool.Helpers;
-using SilkroadInterfaceTool.MVVM.Models.SROControls;
+using SilkroadInterfaceTool.SROControls;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.MVVM.Models;
+namespace SilkroadInterfaceTool.Base;
 
 public class CIFMainFrame : ControlBase
 {

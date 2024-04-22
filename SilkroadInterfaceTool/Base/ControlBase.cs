@@ -3,13 +3,13 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using SilkroadInterfaceTool.MVVM.Models.Helpers;
+using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
 // ReSharper disable InconsistentNaming
 
-namespace SilkroadInterfaceTool.MVVM.Models;
+namespace SilkroadInterfaceTool.Base;
 
 public class ControlBase : Canvas, INotifyPropertyChanged
 {

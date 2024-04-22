@@ -1,10 +1,11 @@
 using System.Windows;
 using System.Windows.Media;
+using SilkroadInterfaceTool.Base;
 using SilkroadInterfaceTool.Helpers;
 using Color = System.Drawing.Color;
 using Point = System.Windows.Point;
 
-namespace SilkroadInterfaceTool.MVVM.Models.SROControls;
+namespace SilkroadInterfaceTool.SROControls;
 
 public class CIFFrame : CIFControl
 {
